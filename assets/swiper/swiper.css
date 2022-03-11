@@ -43,3 +43,52 @@ body {
     height: 100%;
     object-fit: cover;
   }
+
+  .swiper-button-next {
+    right: -60px !important;
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50%;
+    border: 1px solid #eb6f25;
+  }
+  .swiper-button-prev {
+    left: -60px !important;
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50%;
+    border: 1px solid #eb6f25;
+  }
+
+  .swiper-button-prev:after{
+    font-size: 20px !important;
+    color: #eb6f25;
+  }
+  .swiper-button-next:after{
+    font-size: 20px !important;
+    color: #eb6f25;
+  }
+
+  .single-banner > a{
+    width: 375px;
+    /* margin-right: 0px; */
+    /* float: left; */
+    display: block;
+  }
+
+  .viewport-img {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+  }
+
+  .viewport-img img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    margin: auto;
+  }
