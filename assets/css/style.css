@@ -347,7 +347,6 @@ h4.product-title > a {
 .product-inner {
     transition: all 0.5s ease;
     position: relative;
-    overflow: hidden;
     border: 1px solid #3333335c;
     padding: 15px;
 }
@@ -470,12 +469,6 @@ h4.product-title > a {
     margin: auto;
   }
 
-  .banner-content {
-    position: absolute;
-    left: 50px;
-    top: 38px;
-  }
-
   .single-banner a img {
     transition: all 0.5s ease 0s;
   }
@@ -516,6 +509,9 @@ h4.product-title > a {
     transition: all 0.5s ease 0s;
   }
 
+  .product-area {
+    margin-top: 80px;
+  }
 
   .product-area .product-inner {
       margin-bottom: 25px;
@@ -523,7 +519,84 @@ h4.product-title > a {
   }
   
   .product-area-item {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: auto auto auto auto;
+  } 
+
+  .product-area-swiper {
+      position: unset !important;
+  }
+
+  .product-area-swiper .product-inner {
+      margin-bottom: 0;
+  }
+
+  .product-area-swiper:hover .btn-prev-next {
+      opacity: 1;
+      visibility: visible;
+  }
+
+  .group-product-area {
+      margin-top: 80px;
+  }
+
+  .group-slide-item {
+      display: flex;
+      align-items: center;
+  }
+
+  .group-item-thumb > a{
+      width: 125px;
+      display: block;
+  }
+
+  .group-item-decs > h5 {
+    font-weight: 400;
+    font-size: 16px;
+    margin-bottom: 5px;
+
+  }
+  .group-item-decs > h5 > a {
+    color: #06264b;
+  }
+
+  .ht-product-action > ul {
+      padding: 0;
+      display: flex;
+      margin-top: 10px;
+  }
+  
+  .ht-product-action > ul > li{}
+  .ht-product-action > ul > li > a{
+    border: 1px solid #ccc;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+    margin-right: 5px;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    border-radius: 50px;
+    align-items: center;
+    justify-content: center;
+  }
+  .ht-product-action > ul > li > a > i{
+      color: #06264b;
+      font-size: 12px;
+  }
+
+  .price-regular {
+      color: #eb6f25;
+  }
+  
+  .price-box {
+      font-size: 16px;
+  }
+
+  .group-item-decs {
+      text-align: left;
+  }
+
+  .group-item {
+      width: 100%;
   }
