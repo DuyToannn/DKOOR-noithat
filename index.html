@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/media.css">
     <link rel="stylesheet" href="./assets/reset/reset.css">
     <link rel="stylesheet" href="./assets/swiper/swiper.css">
     <!--==============BootStrap==============-->
@@ -32,7 +33,7 @@
 <body>
     <section class="header-main">
         <div class="container">
-            <div class="row header_nav">
+            <div class="d-flex header_nav">
                 <div class="col-xl-2 col-lg-2">
                     <div class="logo text-left">
                         <a href="./index.html"><img
@@ -42,8 +43,22 @@
                 </div>
                 <div class="col-xl-8 col-lg-7">
                     <div class="main-menu">
+                        <a href="#" class="mobile-aside-close">
+                            <i class="fa-regular fa-circle-xmark"></i>
+                        </a>
+                        <div class="mobile-search">
+                            <form class="search-form" action="/search" method="get" role="search"
+                                style="position: relative;">
+                                <input type="search" name="q" value="" placeholder="Search our store"
+                                    autocomplete="off">
+                                <button class="button-search" type="submit"><i
+                                        class="fa-light fa-magnifying-glass"></i></button>
+                                <ul class="search-results home-two"
+                                    style="position: absolute; left: 0px; top: 50px; display: none;"></ul>
+                            </form>
+                        </div>
                         <ul>
-                            <li><a href="#">Home</a>
+                            <li><a href="#">Home</a><i class="fa-solid fa-plus plus-mobile"></i>
                                 <ul class="submenu">
                                     <li class="submenu-li"><a href="">Home 1</a></li>
                                     <li class="submenu-li"><a href="">Home 1</a></li>
@@ -104,18 +119,37 @@
                 </div>
                 <div class="col-xl-2 col-lg-3">
                     <div class="header-right">
-                        <div class="header-search">
+                        <div class="header-search btn-mb-hd">
                             <span> <i class="fa-regular fa-magnifying-glass"></i></i></span>
                         </div>
                         <div class="cart-wrap">
                             <span class="icon-cart"><i class="fa-light fa-cart-shopping"></i></span>
                         </div>
-                        <div class="setting-wrap">
+                        <div class="setting-wrap btn-mb-hd">
                             <span><i class="fa-duotone fa-gear"></i></span>
+                        </div>
+                        <div class="btn-bars">
+                            <span><i class="fa-solid fa-bars"></i></span>
                         </div>
                     </div>
                 </div>
             </div>
+            <script>
+                $(document).ready(function () {
+                    $(".btn-bars").click(function () {
+                        $(".main-menu").slideToggle()
+                        $(".mobile-aside-close").click(function () {
+                            $(".main-menu").slideUp()
+                        })
+                    })
+                })
+                $(document).ready(function () {
+                    $(".plus-mobile").click(function () {
+                        $(this).parent().find('.submenu').slideToggle(300);
+                        $(this).parent().siblings().find('.submenu').slideUp(300);
+                    })
+                })
+            </script>
         </div>
     </section>
     <section class="banner-main ">
@@ -171,16 +205,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="swiper-pagination"></div>
             </div>
     </section>
     <script>
-        var swiper = new Swiper(".banner-swiper", {
-            pagination: {
-                el: ".swiper-pagination",
-                dynamicBullets: true,
-            },
-        });
+        var swiper = new Swiper(".banner-swiper", {});
     </script>
     <section class="shoptify-section">
         <div class="container">
@@ -954,11 +982,16 @@
                     </div>
                     <script>
                         var swiper = new Swiper(".product-block1", {
-                            slidesPerView: 4,
+                            slidesPerView: 1,
                             spaceBetween: 30,
                             navigation: {
                                 nextEl: ".swiper-button-next",
                                 prevEl: ".swiper-button-prev",
+                            },
+                            breakpoints: {
+                                768: {
+                                    slidesPerView: 4,
+                                },
                             },
                         });
                     </script>
@@ -975,7 +1008,6 @@
                     if ($(this).hasClass('inactive')) {
                         $('#tabs li a').addClass('inactive');
                         $(this).removeClass('inactive');
-
                         $('.tab-panee').hide();
                         $('#' + t + 'C').fadeIn('slow');
                     }
@@ -1045,7 +1077,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <div class="btn-prev-next">
                     <div class="swiper-button-next"></div>
@@ -1055,10 +1086,15 @@
         </div>
         <script>
             var swiper = new Swiper(".banner-area-swiper", {
-                slidesPerView: 3,
+                slidesPerView: 2,
                 navigation: {
                     nextEl: ".swiper-button-next",
                     prevEl: ".swiper-button-prev",
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 3,
+                    },
                 },
             });
         </script>
@@ -1798,16 +1834,23 @@
 
             <script>
                 var swiper = new Swiper(".product-area-swiper", {
-
+                    slidesPerView: 1,
                     navigation: {
                         nextEl: ".swiper-button-next",
                         prevEl: ".swiper-button-prev",
+                    },
+
+                    breakpoints: {
+                        768: {
+                            slidesPerView: 1,
+                            spaceBetween: 40,
+                        },
                     },
                 });
             </script>
         </div>
     </section>
-    <section class="group-product-area" style="padding-bottom: 2000px;">
+    <section class="group-product-area">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-6 col-lg-4">
@@ -1815,8 +1858,8 @@
                         <div class="settion-title-append">
                             <h4>Best Selling</h4>
                         </div>
-                        <div class="group-list-item-wrapper">
-                            <div class="swiper group-area">
+                        <div class="group-list-item-wrapper" style="position: relative;">
+                            <div class="swiper group-area" style="position: unset;">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
                                         <div class="group-item">
@@ -1938,10 +1981,131 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="swiper-slide">Slide 2</div>
+                                    <div class="swiper-slide">
+                                        <div class="group-item">
+                                            <div class="group-slide-item">
+                                                <div class="group-item-thumb">
+                                                    <a href="#">
+                                                        <div class="viewport-img">
+                                                            <img src="//cdn.shopify.com/s/files/1/1288/2227/products/3_282c7baf-016d-427a-8161-1cc85dc6ac4b.jpg?v=1642479270"
+                                                                alt="Demo product title">
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="group-item-decs">
+                                                    <h5><a href="#">Demo product title</a></h5>
+                                                    <div class="price-box">
+                                                        <span class="price-regular"><span
+                                                                class="money">$19.00</span></span>
+                                                        <span class="price-old"><del><span
+                                                                    class="money">$21.00</span></del></span>
+                                                    </div>
+                                                    <div class="ht-product-action">
+                                                        <ul>
+                                                            <li><a href="#"><i
+                                                                        class="fa-light fa-magnifying-glass"></i></a>
+                                                            </li>
+                                                            <li><a href="#"><i class="fa-light fa-heart"></i></a></li>
+                                                            <li><a href="#"><i
+                                                                        class="fa-light fa-cart-shopping"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="group-slide-item">
+                                                <div class="group-item-thumb">
+                                                    <a href="#">
+                                                        <div class="viewport-img">
+                                                            <img src="//cdn.shopify.com/s/files/1/1288/2227/products/3_282c7baf-016d-427a-8161-1cc85dc6ac4b.jpg?v=1642479270"
+                                                                alt="Demo product title">
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="group-item-decs">
+                                                    <h5><a href="#">Demo product title</a></h5>
+                                                    <div class="price-box">
+                                                        <span class="price-regular"><span
+                                                                class="money">$19.00</span></span>
+                                                        <span class="price-old"><del><span
+                                                                    class="money">$21.00</span></del></span>
+                                                    </div>
+                                                    <div class="ht-product-action">
+                                                        <ul>
+                                                            <li><a href="#"><i
+                                                                        class="fa-light fa-magnifying-glass"></i></a>
+                                                            </li>
+                                                            <li><a href="#"><i class="fa-light fa-heart"></i></a></li>
+                                                            <li><a href="#"><i
+                                                                        class="fa-light fa-cart-shopping"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="group-slide-item">
+                                                <div class="group-item-thumb">
+                                                    <a href="#">
+                                                        <div class="viewport-img">
+                                                            <img src="//cdn.shopify.com/s/files/1/1288/2227/products/3_282c7baf-016d-427a-8161-1cc85dc6ac4b.jpg?v=1642479270"
+                                                                alt="Demo product title">
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="group-item-decs">
+                                                    <h5><a href="#">Demo product title</a></h5>
+                                                    <div class="price-box">
+                                                        <span class="price-regular"><span
+                                                                class="money">$19.00</span></span>
+                                                        <span class="price-old"><del><span
+                                                                    class="money">$21.00</span></del></span>
+                                                    </div>
+                                                    <div class="ht-product-action">
+                                                        <ul>
+                                                            <li><a href="#"><i
+                                                                        class="fa-light fa-magnifying-glass"></i></a>
+                                                            </li>
+                                                            <li><a href="#"><i class="fa-light fa-heart"></i></a></li>
+                                                            <li><a href="#"><i
+                                                                        class="fa-light fa-cart-shopping"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="group-slide-item">
+                                                <div class="group-item-thumb">
+                                                    <a href="#">
+                                                        <div class="viewport-img">
+                                                            <img src="//cdn.shopify.com/s/files/1/1288/2227/products/3_282c7baf-016d-427a-8161-1cc85dc6ac4b.jpg?v=1642479270"
+                                                                alt="Demo product title">
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="group-item-decs">
+                                                    <h5><a href="#">Demo product title</a></h5>
+                                                    <div class="price-box">
+                                                        <span class="price-regular"><span
+                                                                class="money">$19.00</span></span>
+                                                        <span class="price-old"><del><span
+                                                                    class="money">$21.00</span></del></span>
+                                                    </div>
+                                                    <div class="ht-product-action">
+                                                        <ul>
+                                                            <li><a href="#"><i
+                                                                        class="fa-light fa-magnifying-glass"></i></a>
+                                                            </li>
+                                                            <li><a href="#"><i class="fa-light fa-heart"></i></a></li>
+                                                            <li><a href="#"><i
+                                                                        class="fa-light fa-cart-shopping"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="swiper-button-next"></div>
-                                <div class="swiper-button-prev"></div>
+                                <div class="btn-prev-next">
+                                    <div class="swiper-button-next"></div>
+                                    <div class="swiper-button-prev"></div>
+                                </div>
                             </div>
                         </div>
                         <script>
@@ -1954,8 +2118,504 @@
                         </script>
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-4"></div>
-                <div class="col-sm-12 col-md-6 col-lg-4"></div>
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                    <div class="categories-group-wrapper">
+                        <div class="settion-title-append">
+                            <h4>Top Rates</h4>
+                        </div>
+                        <div class="group-list-item-wrapper" style="position: relative;">
+                            <div class="swiper group-area" style="position: unset;">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="group-item">
+                                            <div class="group-slide-item">
+                                                <div class="group-item-thumb">
+                                                    <a href="#">
+                                                        <div class="viewport-img">
+                                                            <img src="//cdn.shopify.com/s/files/1/1288/2227/products/3_282c7baf-016d-427a-8161-1cc85dc6ac4b.jpg?v=1642479270"
+                                                                alt="Demo product title">
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="group-item-decs">
+                                                    <h5><a href="#">Demo product title</a></h5>
+                                                    <div class="price-box">
+                                                        <span class="price-regular"><span
+                                                                class="money">$19.00</span></span>
+                                                        <span class="price-old"><del><span
+                                                                    class="money">$21.00</span></del></span>
+                                                    </div>
+                                                    <div class="ht-product-action">
+                                                        <ul>
+                                                            <li><a href="#"><i
+                                                                        class="fa-light fa-magnifying-glass"></i></a>
+                                                            </li>
+                                                            <li><a href="#"><i class="fa-light fa-heart"></i></a></li>
+                                                            <li><a href="#"><i
+                                                                        class="fa-light fa-cart-shopping"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="group-slide-item">
+                                                <div class="group-item-thumb">
+                                                    <a href="#">
+                                                        <div class="viewport-img">
+                                                            <img src="//cdn.shopify.com/s/files/1/1288/2227/products/3_282c7baf-016d-427a-8161-1cc85dc6ac4b.jpg?v=1642479270"
+                                                                alt="Demo product title">
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="group-item-decs">
+                                                    <h5><a href="#">Demo product title</a></h5>
+                                                    <div class="price-box">
+                                                        <span class="price-regular"><span
+                                                                class="money">$19.00</span></span>
+                                                        <span class="price-old"><del><span
+                                                                    class="money">$21.00</span></del></span>
+                                                    </div>
+                                                    <div class="ht-product-action">
+                                                        <ul>
+                                                            <li><a href="#"><i
+                                                                        class="fa-light fa-magnifying-glass"></i></a>
+                                                            </li>
+                                                            <li><a href="#"><i class="fa-light fa-heart"></i></a></li>
+                                                            <li><a href="#"><i
+                                                                        class="fa-light fa-cart-shopping"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="group-slide-item">
+                                                <div class="group-item-thumb">
+                                                    <a href="#">
+                                                        <div class="viewport-img">
+                                                            <img src="//cdn.shopify.com/s/files/1/1288/2227/products/3_282c7baf-016d-427a-8161-1cc85dc6ac4b.jpg?v=1642479270"
+                                                                alt="Demo product title">
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="group-item-decs">
+                                                    <h5><a href="#">Demo product title</a></h5>
+                                                    <div class="price-box">
+                                                        <span class="price-regular"><span
+                                                                class="money">$19.00</span></span>
+                                                        <span class="price-old"><del><span
+                                                                    class="money">$21.00</span></del></span>
+                                                    </div>
+                                                    <div class="ht-product-action">
+                                                        <ul>
+                                                            <li><a href="#"><i
+                                                                        class="fa-light fa-magnifying-glass"></i></a>
+                                                            </li>
+                                                            <li><a href="#"><i class="fa-light fa-heart"></i></a></li>
+                                                            <li><a href="#"><i
+                                                                        class="fa-light fa-cart-shopping"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="group-slide-item">
+                                                <div class="group-item-thumb">
+                                                    <a href="#">
+                                                        <div class="viewport-img">
+                                                            <img src="//cdn.shopify.com/s/files/1/1288/2227/products/3_282c7baf-016d-427a-8161-1cc85dc6ac4b.jpg?v=1642479270"
+                                                                alt="Demo product title">
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="group-item-decs">
+                                                    <h5><a href="#">Demo product title</a></h5>
+                                                    <div class="price-box">
+                                                        <span class="price-regular"><span
+                                                                class="money">$19.00</span></span>
+                                                        <span class="price-old"><del><span
+                                                                    class="money">$21.00</span></del></span>
+                                                    </div>
+                                                    <div class="ht-product-action">
+                                                        <ul>
+                                                            <li><a href="#"><i
+                                                                        class="fa-light fa-magnifying-glass"></i></a>
+                                                            </li>
+                                                            <li><a href="#"><i class="fa-light fa-heart"></i></a></li>
+                                                            <li><a href="#"><i
+                                                                        class="fa-light fa-cart-shopping"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="group-item">
+                                            <div class="group-slide-item">
+                                                <div class="group-item-thumb">
+                                                    <a href="#">
+                                                        <div class="viewport-img">
+                                                            <img src="//cdn.shopify.com/s/files/1/1288/2227/products/3_282c7baf-016d-427a-8161-1cc85dc6ac4b.jpg?v=1642479270"
+                                                                alt="Demo product title">
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="group-item-decs">
+                                                    <h5><a href="#">Demo product title</a></h5>
+                                                    <div class="price-box">
+                                                        <span class="price-regular"><span
+                                                                class="money">$19.00</span></span>
+                                                        <span class="price-old"><del><span
+                                                                    class="money">$21.00</span></del></span>
+                                                    </div>
+                                                    <div class="ht-product-action">
+                                                        <ul>
+                                                            <li><a href="#"><i
+                                                                        class="fa-light fa-magnifying-glass"></i></a>
+                                                            </li>
+                                                            <li><a href="#"><i class="fa-light fa-heart"></i></a></li>
+                                                            <li><a href="#"><i
+                                                                        class="fa-light fa-cart-shopping"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="group-slide-item">
+                                                <div class="group-item-thumb">
+                                                    <a href="#">
+                                                        <div class="viewport-img">
+                                                            <img src="//cdn.shopify.com/s/files/1/1288/2227/products/3_282c7baf-016d-427a-8161-1cc85dc6ac4b.jpg?v=1642479270"
+                                                                alt="Demo product title">
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="group-item-decs">
+                                                    <h5><a href="#">Demo product title</a></h5>
+                                                    <div class="price-box">
+                                                        <span class="price-regular"><span
+                                                                class="money">$19.00</span></span>
+                                                        <span class="price-old"><del><span
+                                                                    class="money">$21.00</span></del></span>
+                                                    </div>
+                                                    <div class="ht-product-action">
+                                                        <ul>
+                                                            <li><a href="#"><i
+                                                                        class="fa-light fa-magnifying-glass"></i></a>
+                                                            </li>
+                                                            <li><a href="#"><i class="fa-light fa-heart"></i></a></li>
+                                                            <li><a href="#"><i
+                                                                        class="fa-light fa-cart-shopping"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="group-slide-item">
+                                                <div class="group-item-thumb">
+                                                    <a href="#">
+                                                        <div class="viewport-img">
+                                                            <img src="//cdn.shopify.com/s/files/1/1288/2227/products/3_282c7baf-016d-427a-8161-1cc85dc6ac4b.jpg?v=1642479270"
+                                                                alt="Demo product title">
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="group-item-decs">
+                                                    <h5><a href="#">Demo product title</a></h5>
+                                                    <div class="price-box">
+                                                        <span class="price-regular"><span
+                                                                class="money">$19.00</span></span>
+                                                        <span class="price-old"><del><span
+                                                                    class="money">$21.00</span></del></span>
+                                                    </div>
+                                                    <div class="ht-product-action">
+                                                        <ul>
+                                                            <li><a href="#"><i
+                                                                        class="fa-light fa-magnifying-glass"></i></a>
+                                                            </li>
+                                                            <li><a href="#"><i class="fa-light fa-heart"></i></a></li>
+                                                            <li><a href="#"><i
+                                                                        class="fa-light fa-cart-shopping"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="group-slide-item">
+                                                <div class="group-item-thumb">
+                                                    <a href="#">
+                                                        <div class="viewport-img">
+                                                            <img src="//cdn.shopify.com/s/files/1/1288/2227/products/3_282c7baf-016d-427a-8161-1cc85dc6ac4b.jpg?v=1642479270"
+                                                                alt="Demo product title">
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="group-item-decs">
+                                                    <h5><a href="#">Demo product title</a></h5>
+                                                    <div class="price-box">
+                                                        <span class="price-regular"><span
+                                                                class="money">$19.00</span></span>
+                                                        <span class="price-old"><del><span
+                                                                    class="money">$21.00</span></del></span>
+                                                    </div>
+                                                    <div class="ht-product-action">
+                                                        <ul>
+                                                            <li><a href="#"><i
+                                                                        class="fa-light fa-magnifying-glass"></i></a>
+                                                            </li>
+                                                            <li><a href="#"><i class="fa-light fa-heart"></i></a></li>
+                                                            <li><a href="#"><i
+                                                                        class="fa-light fa-cart-shopping"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="btn-prev-next">
+                                    <div class="swiper-button-next"></div>
+                                    <div class="swiper-button-prev"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <script>
+                            var swiper = new Swiper(".group-area", {
+                                navigation: {
+                                    nextEl: ".swiper-button-next",
+                                    prevEl: ".swiper-button-prev",
+                                },
+                            });
+                        </script>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                    <div class="group-product-banner">
+                        <a href="#">
+                            <img src="https://cdn.shopify.com/s/files/1/1288/2227/files/banner_2_grande.png?v=1642332231"
+                                alt="" class="img-fluid">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="blog-main">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>FEATURED BLOGS</h2>
+                <p>Latest Blog</p>
+            </div>
+            <div class="blog-item" style="position: relative;">
+                <div class="swiper blog-slider" style="position: unset;">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="blog-wrap mb-40 text-center">
+                                <div class="blog-img mb-25">
+                                    <a href="#"><img
+                                            src="https://cdn.shopify.com/s/files/1/1288/2227/articles/13_600x400_crop_center.jpg?v=1642413170"
+                                            alt=""></a>
+                                    <div class="blog-content text-left">
+                                        <h3><a href="#">Decorate yoursimple steps</a></h3>
+                                        <div class="blog-meta blog-mrg-border">
+                                            <ul>
+                                                <li><a class="remove_href">17 January, 2022</a></li>
+                                                <li><a href="#">0 comments</a></li>
+                                            </ul>
+                                        </div>
+                                        <p>The summer holidays are wonderful. Dressing for them can be significantly
+                                            less so: Packing light...</p>
+                                        <div class="show-more-btn toggle-btn">
+                                            <a class="loadMore" href="#">Read More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="blog-wrap mb-40 text-center">
+                                <div class="blog-img mb-25">
+                                    <a href="#"><img
+                                            src="https://cdn.shopify.com/s/files/1/1288/2227/articles/13_600x400_crop_center.jpg?v=1642413170"
+                                            alt=""></a>
+                                    <div class="blog-content text-left">
+                                        <h3><a href="#">Decorate yoursimple steps</a></h3>
+                                        <div class="blog-meta blog-mrg-border">
+                                            <ul>
+                                                <li><a class="remove_href">17 January, 2022</a></li>
+                                                <li><a href="#">0 comments</a></li>
+                                            </ul>
+                                        </div>
+                                        <p>The summer holidays are wonderful. Dressing for them can be significantly
+                                            less so: Packing light...</p>
+                                        <div class="show-more-btn toggle-btn">
+                                            <a class="loadMore" href="#">Read More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="blog-wrap mb-40 text-center">
+                                <div class="blog-img mb-25">
+                                    <a href="#"><img
+                                            src="https://cdn.shopify.com/s/files/1/1288/2227/articles/13_600x400_crop_center.jpg?v=1642413170"
+                                            alt=""></a>
+                                    <div class="blog-content text-left">
+                                        <h3><a href="#">Decorate yoursimple steps</a></h3>
+                                        <div class="blog-meta blog-mrg-border">
+                                            <ul>
+                                                <li><a class="remove_href">17 January, 2022</a></li>
+                                                <li><a href="#">0 comments</a></li>
+                                            </ul>
+                                        </div>
+                                        <p>The summer holidays are wonderful. Dressing for them can be significantly
+                                            less so: Packing light...</p>
+                                        <div class="show-more-btn toggle-btn">
+                                            <a class="loadMore" href="#">Read More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="blog-wrap mb-40 text-center">
+                                <div class="blog-img mb-25">
+                                    <a href="#"><img
+                                            src="https://cdn.shopify.com/s/files/1/1288/2227/articles/13_600x400_crop_center.jpg?v=1642413170"
+                                            alt=""></a>
+                                    <div class="blog-content text-left">
+                                        <h3><a href="#">Decorate yoursimple steps</a></h3>
+                                        <div class="blog-meta blog-mrg-border">
+                                            <ul>
+                                                <li><a class="remove_href">17 January, 2022</a></li>
+                                                <li><a href="#">0 comments</a></li>
+                                            </ul>
+                                        </div>
+                                        <p>The summer holidays are wonderful. Dressing for them can be significantly
+                                            less so: Packing light...</p>
+                                        <div class="show-more-btn toggle-btn">
+                                            <a class="loadMore" href="#">Read More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-prev-next">
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </div>
+                <script>
+                    var swiper = new Swiper(".blog-slider", {
+                        spaceBetween: 30,
+                        slidesPerView: 1,
+                        navigation: {
+                            nextEl: ".swiper-button-next",
+                            prevEl: ".swiper-button-prev",
+                        },
+                        breakpoints: {
+                            768: {
+                                slidesPerView: 3,
+                                spaceBetween: 40,
+                            },
+                        },
+                    });
+                </script>
+            </div>
+        </div>
+    </section>
+    <section class="footer-area theme_footer_top" >
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-6 col-sm-6 col-6">
+                    <div class="footer-widget mb-40">
+                        <div class="footer-title">
+                            <h3>Quick Links</h3>
+                        </div>
+                        <div class="footer-list">
+                            <ul>
+                                <li><a href="/account">My account</a></li>
+                                <li><a href="/pages/about-us">About us</a></li>
+                                <li><a href="#">Returns</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Site Map</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 col-sm-6 col-6">
+                    <div class="footer-widget mb-40">
+                        <div class="footer-title">
+                            <h3>Information</h3>
+                        </div>
+                        <div class="footer-list">
+                            <ul>
+                                <li><a href="/account">My Account</a></li>
+                                <li><a href="/checkout">Check Out</a></li>
+                                <li><a href="/pages/about">About Us</a></li>
+                                <li><a href="/pages/faq">Faq Page</a></li>
+                                <li><a href="/blogs/news">Blog Area</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 col-sm-6 col-6">
+                    <div class="footer-widget mb-40">
+                        <div class="footer-title">
+                            <h3>Categories</h3>
+                        </div>
+                        <div class="footer-list">
+                            <ul>
+                                <li><a href="/collections/new-products">New collection</a></li>
+                                <li><a href="#">Manufacturers</a></li>
+                                <li><a href="/collections/new-products">New products</a></li>
+                                <li><a href="#">Suppliers</a></li>
+                                <li><a href="#">Delivery &amp; returns</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 col-sm-6 col-6">
+                    <div class="footer-widget mb-40">
+                        <div class="footer-title">
+                            <h3>Quick Links</h3>
+                        </div>
+                        <div class="footer-list">
+                            <ul>
+                                <li><a href="#">Help &amp; Contact</a></li>
+                                <li><a href="#">Shipping &amp; taxes</a></li>
+                                <li><a href="#">Returns policy</a></li>
+                                <li><a href="#">Affiliates</a></li>
+                                <li><a href="#">Legal Notice</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                    <div class="footer-widget mb-40">
+                        <div class="footer-title">
+                            <h3>About Info</h3>
+                        </div>
+                        <div class="subscribe-style">
+                            <p>Subscribe to our newsleter, Enter your emil address.
+                                Lorem ipsum dolor sit amet.</p>
+                            <div id="mc_embed_signup" class="subscribe-form">
+                                <form method="post" action="/contact#Contact_footer_1" id="Contact_footer_1"
+                                    class="contact-form"><input type="hidden" name"><input type="hidden" name="utf8"
+                                        value="✓">
+                                    <div id="mc_embed_signup_scroll" class="mc-form">
+                                        <input type="hidden" name="contact[tags]" value="newsletter">
+                                        <input class="form-control subscribe-form-input email" type="email"
+                                            name="contact[email]" id="Email" value="" placeholder="email@example.com">
+                                        <div class="sbs_btn">
+                                            <a href="#">Subscribe</a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <p>We’ll never share your email address.</p>
+                        </div><a class="app_store_img" href="">
+                            <img src="//cdn.shopify.com/s/files/1/1288/2227/files/app_store2_large.png?v=1642398116"
+                                alt="" class="img-fluid">
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

@@ -1,0 +1,210 @@
+@media (max-width:768px) {
+    .main-menu {
+        /* display: none; */
+    }
+
+    .header_nav {
+        justify-content: space-between;
+    }
+
+    .header-right {
+        gap: 25px;
+    }
+
+    .btn-mb-hd {
+        display: none;
+    }
+
+    .main-menu {
+        position: fixed;
+        z-index: 9999;
+        width: 100%;
+        height: 100%;
+        right: 0;
+        top: 0;
+        background: #fff;
+        box-shadow: 0 0 87px 0 rgb(0 0 0);
+        z-index: 9999;
+        width: 265px;
+    }
+
+    .main-menu > ul {
+        align-items:unset;
+        display: flex;
+        padding: 0;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .mobile-search {
+        padding: 30px 20px 50px;
+        display: block;
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 27px;
+        padding-bottom: 40px;
+    }
+    .mobile-search form {
+        border: 1px solid #ddd;
+    }
+    .mobile-search form input {
+        background-color: #f6f6f6;
+        border: none;
+        border-radius: 0;
+        height: 50px;
+        padding: 0 60px 0 15px;
+        width: 100%;
+        font-size: 14px;
+        outline: none;
+    }
+    .mobile-search form button {
+        background-color: transparent;
+        border-color: #ddd;
+        border-image: none;
+        border-radius: 5px 0 0 5px;
+        border-style: none none none solid;
+        border-width: medium medium medium 1px;
+        font-size: 18px;
+        height: 100%;
+        padding: 0 15px 0 14px;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: all 0.3s ease 0s;
+
+    }
+
+    .main-menu  {
+        display: none;
+    }
+    .main-menu > ul > li {
+        height: unset;
+        justify-content: space-between;
+    }
+
+    .plus-mobile{
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 5px;
+    }
+
+.mobile-aside-close {
+        position: absolute;
+        left: -40px;
+        top: 0;
+        z-index: 9;
+        width: 40px;
+        height: 40px;
+        color: #fff;
+        line-height: 40px;
+        text-align: center;
+        font-size: 18px;
+        background-color: #343538;
+    }
+
+    .mobile-aside-close i {
+        transition: all 0.3s ease-in-out;
+        display: inline-block;
+        color: #fff;
+    }
+
+    .main-menu > ul > li ul.submenu {
+        position: unset;
+        transform: unset;
+        transition: unset;
+        box-shadow: none;
+        display: none;
+    }
+
+    .main-menu > ul > li {
+        display: block;
+    }
+
+    .banner-content h3 {
+        font-size: 18px;
+        margin: 0;
+    }
+
+    .banner-content h1 {
+        font-size: 35px;
+        margin: 0;
+    }
+
+    .slider-btn > a {
+        padding: 10px 15px;
+        font-size: 13px;
+    }
+
+    .single-feature {
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .section-title p {
+        font-size: 30px;
+    }
+
+    .tab-heading {
+        padding: 0;
+    }
+
+    #tabs li a {
+        font-size: 15px;
+    }
+
+    .product-block1 .swiper-button-prev {
+        left: -5px !important;
+        width: 30px !important;
+        height: 30px !important;
+    }
+
+    .product-block1 .swiper-button-next {
+        right: 5px !important;
+        width: 30px !important;
+        height: 30px !important;
+    }
+
+    .banner-area .viewport-img{
+        padding-top: 50%;
+    }
+
+    .product-img-block > a {
+        width: 140px;
+        margin: 0 auto;
+    }
+
+    .product-area .product-inner {
+        padding: 10px;
+    }
+
+    .product-area-item {
+        grid-template-columns: auto auto ;
+    }
+    h4.product-title > a {
+        font-size: 14px;
+    }
+    .ht-product-price span.new{
+        font-size: 16px;
+    }
+
+    .product-action > ul > li {
+        width: 25px;
+        height: 25px;
+    }
+
+    .product-action > ul > li > a > i{
+        font-size: 12px;
+    }
+
+    .theme_footer_top .footer-widget .footer-list ul li a {
+        font-size: 14px;
+    }
+
+    .app_store_img img {
+        width: 100%;
+    }
+ .btn-prev-next{
+        display: none;
+    }
+}
